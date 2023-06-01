@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter@Setter
-@ToString@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter @Setter
 public class FileDTO {
 	private String name;
-	//file 요소 처리 
+	//file 요소 처리
 	private MultipartFile[] file;
 }

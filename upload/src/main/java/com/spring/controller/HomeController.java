@@ -43,59 +43,77 @@ public class HomeController {
 		
 		return "home";
 	}
+	
 	@GetMapping("/uploadForm")
 	public void uploadForm() {
 		logger.info("uploadForm 요청");
 	}
 	
-//	첨부파일이 한 개인 경우
+//	첨부 파일이 한 개인 경우
 //	@PostMapping("/uploadForm")
 //	public void uploadPost(FileDTO dto) {
-//		logger.info("upload 요청"+dto);
+//		logger.info("upload 요청 "+dto);
 //		
-//		logger.info("file Nmae "+dto.getFile().getOriginalFilename());
+//		logger.info("file Name "+dto.getFile().getOriginalFilename());
 //		logger.info("content type "+dto.getFile().getContentType());
 //		logger.info("file size "+dto.getFile().getSize());
 //		
-//		String uploadPath="C:\\upload";
-//		File saveiFile = new File(uploadPath, dto.getFile().getOriginalFilename());
+//		String uploadPath = "C:\\upload";
+//		File saveFile = new File(uploadPath, dto.getFile().getOriginalFilename());
+//		
 //		
 //		try {
+//			
 //			//폴더에 저장
-//			dto.getFile().transferTo(saveiFile);
-//		} catch (IllegalStateException e) {
+//			dto.getFile().transferTo(saveFile);
+//		} catch (IllegalStateException e) {			
 //			e.printStackTrace();
-//		} catch (IOException e) {
+//		} catch (IOException e) {			
 //			e.printStackTrace();
 //		}
-		
 //	}
 	
-//	첨부파일이 여러개인 경우
+	// 첨부 파일이 여러개인 경우
 	@PostMapping("/uploadForm")
 	public void uploadPost(FileDTO dto) {
-		logger.info("upload 요청"+dto);
+		logger.info("upload 요청 "+dto);
 		
-		String uploadPath="C:\\upload";
-		for (MultipartFile multipartFile : dto.getFile()) {			
-			logger.info("file Nmae "+multipartFile.getOriginalFilename());
+		String uploadPath = "C:\\upload";
+		for (MultipartFile multipartFile : dto.getFile()) {
+			logger.info("file Name "+multipartFile.getOriginalFilename());
 			logger.info("content type "+multipartFile.getContentType());
 			logger.info("file size "+multipartFile.getSize());
 			
 			UUID uuid = UUID.randomUUID();
-			String fileName = uuid.toString()+"_"+multipartFile.getOriginalFilename();
-			
+			String fileName = uuid.toString() + "_" + multipartFile.getOriginalFilename();
 			
 			File saveFile = new File(uploadPath, fileName);
 			
 			try {
+				
 				//폴더에 저장
 				multipartFile.transferTo(saveFile);
-			} catch (IllegalStateException e) {
+			} catch (IllegalStateException e) {			
 				e.printStackTrace();
-			} catch (IOException e) {
+			} catch (IOException e) {			
 				e.printStackTrace();
 			}
-		}
-	}	
+		}		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

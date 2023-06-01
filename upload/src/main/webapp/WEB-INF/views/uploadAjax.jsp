@@ -12,15 +12,13 @@
 </head>
 <body>
 <h1>Upload Ajax</h1>
-<div class="uploadDiv">	
+<div class="uploadDiv">
 	<input type="file" name="uploadFile" id="uploadFile" accept="image/*, .txt" multiple/>
 </div>
 <button type="submit" id="uploadBtn">upload</button>
 <div class="uploadResult">
-	<ul> 
-	
-	</ul>
+	<ul></ul>
 </div>
 <script src="/resources/js/upload.js"></script>
-</body>	
-</html>			
+</body>
+</html>

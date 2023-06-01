@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@ToString@Getter@Setter
-@AllArgsConstructor@NoArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter @Setter
 public class AttachFileDTO {
 	private String uuid;
 	private String uploadPath;
