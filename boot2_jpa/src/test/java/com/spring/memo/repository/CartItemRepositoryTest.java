@@ -1,0 +1,38 @@
+package com.spring.memo.repository;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.spring.memo.entity.Cart;
+import com.spring.memo.entity.CartItem;
+import com.spring.memo.entity.Item;
+
+@SpringBootTest
+public class CartItemRepositoryTest {
+	
+	@Autowired
+	private CartRepository cartRepository;
+	@Autowired
+	private ItemRepository itemRepository;
+	
+	@Autowired
+	private CartItemRepository repository;
+	
+	@Test
+	public void createCartItem() {
+		
+		Cart cart = cartRepository.findById(5L).orElseThrow(); 
+		Item item = itemRepository.findById(3L).orElseThrow();
+		
+		CartItem cartitem = CartItem.builder()
+									.cart(cart)
+									.item(item)
+									.count(2)
+									.build(); 
+		
+		CartItem newItem =repository.save(cartitem);
+		
+		System.out.println(newItem);
+	}
+}

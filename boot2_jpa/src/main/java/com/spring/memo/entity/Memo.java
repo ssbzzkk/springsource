@@ -14,9 +14,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @SequenceGenerator(name="mem_seq_gen", sequenceName = "mem_seq",allocationSize = 1)
 @ToString@Getter@Setter@AllArgsConstructor@NoArgsConstructor
 @Entity //클래스를 엔티티로 선언
+//@Table(name="memos")
 @Builder
 public class Memo {
 
