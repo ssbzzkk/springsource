@@ -55,7 +55,7 @@ modifyForm.addEventListener("submit", (e) => {
       "'/>";
   });
 
-  //수집한 태그 폼에 추가
+  //수집한 태r그 폼에 추가
   modifyForm.insertAdjacentHTML("beforeend", str);
   console.log("수정폼");
   console.log(modifyForm);
